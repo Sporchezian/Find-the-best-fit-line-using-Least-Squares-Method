@@ -24,39 +24,24 @@ Developed by:PORCHEZIAN S
 
 RegisterNumber:212225040304
 ```
-
 import numpy as np
 import matplotlib.pyplot as plt
-
-# Sample data (X: input, Y: output)
 X = np.array([1, 2, 3, 4, 5])
 Y = np.array([2, 4, 5, 4, 5])
-
-# Number of data points
-#n = len(X)
-
-# Calculate mean
 x_mean = np.mean(X)
 y_mean = np.mean(Y)
-
-# Calculate slope (m) and intercept (b)
-numerator = np.sum((X - x_mean) * (Y - y_mean))
-denominator = np.sum((X - x_mean) ** 2)
-
-m = numerator/denominator
-b = y_mean - m * x_mean
-
+num = np.sum((X - x_mean) * (Y - y_mean))
+den = np.sum((X - x_mean) ** 2)
+m = num / den
+c = y_mean - m * x_mean
 print("Slope (m):", m)
-print("Intercept (b):", b)
-
-# Predicted values
-Y_pred = m * X + b
-#x = input("Enter value: ")
-#yy = m * float(x) + b
-#print("Value:", yy)
-# Plotting
-plt.scatter(X, Y, label="Data Points")
-plt.plot(X, Y_pred, label="Best Fit Line")
+print("Intercept (c):", c)
+Y_pred = m * X + c
+x = int(input("Enter the value: "))
+y = m * float(x) + c
+print("Predicted Value:", y)
+plt.scatter(X, Y, label="Datapoints")
+plt.plot(X, Y_pred, label="Best fit line", color="red")
 plt.xlabel("X")
 plt.ylabel("Y")
 plt.legend()
@@ -66,7 +51,7 @@ plt.show()
 
 ## Output:
 
-<img width="787" height="640" alt="image" src="https://github.com/user-attachments/assets/775d8f24-a2cf-4d07-859f-0f203232701d" />
+<img width="834" height="673" alt="image" src="https://github.com/user-attachments/assets/af08f0f4-5603-4ef8-91f8-40c65fbd205b" />
 
 
 ## Result:
